@@ -1,0 +1,24 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: myapp
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: appp
+  template:
+    metadata:
+      name: appp
+      labels:
+        app: appp
+    spec:
+      containers:
+        - image: nginx:alpine
+          imagePullPolicy: IfNotPresent
+          name: nginx
+          resources:
+            limits:
+              memory: "512Mi"
+              cpu: "1"
+    
